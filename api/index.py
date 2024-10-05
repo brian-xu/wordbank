@@ -20,8 +20,6 @@ def process(raw_wordbank):
                 words["Normal"].add(line.lower())
     for key in words:
         words[key] = sorted(list(words[key]))
-    with open("wordBank.json", "w", encoding="utf-8") as f:
-        json.dump(words, f, ensure_ascii=False, indent=4)
     return words
 
 
