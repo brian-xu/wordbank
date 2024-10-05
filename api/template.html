@@ -1,0 +1,9 @@
+<p><b>GENERAL WORD BANK</b></p>
+{% for key in words%}
+<p><b>"{{key}}":</b></p>
+<ol>
+    {% for word in words[key] %}
+    <li>{{word}}</li>
+    {% endfor %}
+</ol>
+{% endfor %}
