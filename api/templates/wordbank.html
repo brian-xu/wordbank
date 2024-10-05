@@ -1,0 +1,42 @@
+<head></head>
+<meta charset="utf-8">
+
+
+<script type="text/javascript">
+    $(document).ready(
+        function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        },
+        function () {
+            $('#classifyfile').attr('disabled', true);
+            $('#imagefile').change(
+                function () {
+                    if ($(this).val()) {
+                        $('#formupload').submit();
+                    }
+                }
+            );
+        }
+    );
+</script>
+</head>
+<form role="form" action="download_json" method="get">
+    <div class="input-group">
+        <textarea class="form-control mb-1" rows="0" name="paragraph" id="paragraph" placeholder="Enter pasted doc"
+            style="resize:none;">{{words}}</textarea>
+    </div>
+    <div class="input-group">
+        <div class="custom-file">
+            <input class="btn btn-primary" value="Download_json" type="submit" id="downloadjson" />
+        </div>
+    </div>
+</form>
+<p><b>GENERAL WORD BANK</b></p>
+{% for key in words%}
+<p><b>"{{key}}":</b></p>
+<ol>
+    {% for word in words[key] %}
+    <li>{{word}}</li>
+    {% endfor %}
+</ol>
+{% endfor %}
