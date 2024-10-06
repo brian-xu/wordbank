@@ -11,7 +11,8 @@ def process(raw_wordbank):
     for line in lines:
         if line:
             if not line[0].isalpha():
-                bank_name = line[1:-2].capitalize()
+                bank_name = "".join([i for i in line if i.isalpha()])
+                bank_name = bank_name.capitalize()
                 if bank_name not in words:
                     words[bank_name] = set()
             elif bank_name:
